@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './SubscriptionPage.css';
 
 const plans = [
@@ -74,10 +73,7 @@ const plans = [
 ];
 
 export default function SubscriptionPage() {
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-
   const handleSubscribe = (planId: string) => {
-    setSelectedPlan(planId);
     // Здесь будет логика оплаты через T-Bank
     alert(`Подписка ${planId} выбрана. Интеграция с оплатой будет добавлена.`);
   };
