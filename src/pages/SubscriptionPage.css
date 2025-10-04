@@ -1,0 +1,114 @@
+.subscription-page h1 {
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: var(--color-white-60);
+  margin-bottom: 24px;
+}
+
+.plans-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.plan-card {
+  position: relative;
+  text-align: center;
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.plan-card.popular {
+  border-color: var(--color-red);
+  box-shadow: var(--shadow-md);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--gradient-red);
+  color: var(--color-white);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.plan-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.plan-name {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.plan-price {
+  margin-bottom: 8px;
+}
+
+.price-amount {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-red);
+}
+
+.price-currency {
+  font-size: 16px;
+  color: var(--color-white-60);
+  margin-left: 4px;
+}
+
+.plan-requests {
+  font-size: 14px;
+  color: var(--color-white-60);
+  margin-bottom: 20px;
+  padding: 8px;
+  background: var(--color-darker);
+  border-radius: var(--border-radius-sm);
+}
+
+.plan-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--color-white-80);
+}
+
+.feature-check {
+  color: var(--color-red);
+  font-weight: 700;
+}
+
+.subscribe-btn {
+  width: 100%;
+}
+
+.subscription-info {
+  margin-bottom: 20px;
+}
+
+.info-list {
+  margin-top: 16px;
+  padding-left: 20px;
+  color: var(--color-white-60);
+}
+
+.info-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}

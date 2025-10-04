@@ -1,0 +1,104 @@
+.profile-page h1 {
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  margin-bottom: 20px;
+}
+
+.profile-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--gradient-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.profile-info h2 {
+  margin-bottom: 4px;
+}
+
+.username {
+  color: var(--color-red);
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.user-id {
+  font-size: 14px;
+  color: var(--color-white-60);
+}
+
+.subscription-card,
+.stats-card,
+.referral-card {
+  margin-bottom: 20px;
+}
+
+.subscription-details {
+  margin-top: 16px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: var(--color-white-60);
+}
+
+.detail-value {
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.stats-list {
+  margin-top: 16px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--color-darker);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 8px;
+}
+
+.stat-icon {
+  font-size: 24px;
+}
+
+.stat-name {
+  flex: 1;
+  color: var(--color-white-80);
+}
+
+.stat-count {
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.referral-link {
+  margin-top: 16px;
+}
