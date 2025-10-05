@@ -1,4 +1,3 @@
-import { CheckIcon, DiamondIcon } from '@/components/Icons';
 import './SubscriptionPage.css';
 
 const plans = [

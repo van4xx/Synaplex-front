@@ -5,22 +5,6 @@ import './HistoryPage.css';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
-const typeIcons: Record<string, string> = {
-  TEXT_GENERATION: '✍️',
-  IMAGE_GENERATION: '🎨',
-  VIDEO_GENERATION: '🎬',
-  AUDIO_GENERATION: '🎵',
-  MUSIC_GENERATION: '🎼'
-};
-
-const statusEmoji: Record<string, string> = {
-  PENDING: '⏳',
-  PROCESSING: '⚙️',
-  COMPLETED: '✅',
-  FAILED: '❌',
-  CANCELLED: '🚫'
-};
-
 export default function HistoryPage() {
   const { userData } = useUser();
   const [requests, setRequests] = useState<any[]>([]);
