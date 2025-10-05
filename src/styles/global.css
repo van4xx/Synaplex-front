@@ -310,9 +310,9 @@ p {
 }
 
 .page-container {
-  max-width: 600px;
+  max-width: 480px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 16px;
 }
 
 .flex {
