@@ -64,10 +64,6 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
     onComplete();
   };
 
-  const handleSkip = () => {
-    handleComplete();
-  };
-
   return (
     <div className="onboarding-overlay">
       <div className="particles">
