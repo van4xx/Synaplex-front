@@ -15,12 +15,16 @@ export default function HistoryPage() {
   }, [userData]);
 
   const fetchHistory = async () => {
-    if (!userData?.telegramId) return;
+    if (!userData?.telegramId) {
+      setLoading(false);
+      return;
+    }
 
     try {
       setLoading(true);
       const response = await axios.get(
-        `${API_URL}/user/${userData.telegramId}/requests?limit=50`
+        `${API_URL}/user/${userData.telegramId}/requests?limit=50`,
+        { timeout: 5000 }
       );
       
       if (response.data.success) {
@@ -28,6 +32,7 @@ export default function HistoryPage() {
       }
     } catch (error) {
       console.error('Error fetching history:', error);
+      // При ошибке просто показываем пустое состояние
     } finally {
       setLoading(false);
     }

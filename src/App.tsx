@@ -11,6 +11,8 @@ import ProfilePage from './pages/ProfilePage';
 import SubscriptionPage from './pages/SubscriptionPage';
 import HistoryPage from './pages/HistoryPage';
 import SettingsPage from './pages/SettingsPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 
 function App() {
   const [isReady, setIsReady] = useState(false);
@@ -65,6 +67,8 @@ function App() {
               <Route path="subscription" element={<SubscriptionPage />} />
               <Route path="history" element={<HistoryPage />} />
               <Route path="settings" element={<SettingsPage />} />
+              <Route path="privacy" element={<PrivacyPage />} />
+              <Route path="terms" element={<TermsPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
           </Routes>
