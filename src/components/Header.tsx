@@ -11,28 +11,23 @@ export default function Header() {
   return (
     <header className="mini-header">
       <div className="header-content">
-        <div className="header-left">
-          <div className="logo-text">NeiroBOT</div>
-        </div>
+        <Link to="/profile" className="profile-link">
+          <div className="profile-avatar-mini">
+            {userData?.firstName?.[0]?.toUpperCase() || 'U'}
+          </div>
+          <span className="profile-name">{userData?.firstName || 'User'}</span>
+        </Link>
         
         <div className="header-right">
-          {userData && (
-            <>
-              <div className="user-info">
-                <span className="user-name">{userData.firstName || 'User'}</span>
-                {hasActiveSubscription ? (
-                  <div className="subscription-badge">
-                    <DiamondIcon className="badge-icon" />
-                    <span>{subscription.plan}</span>
-                  </div>
-                ) : (
-                  <Link to="/subscription" className="subscribe-link">
-                    <DiamondIcon className="badge-icon" />
-                    <span>Подписка</span>
-                  </Link>
-                )}
-              </div>
-            </>
+          {hasActiveSubscription ? (
+            <Link to="/subscription" className="plan-badge">
+              <DiamondIcon className="badge-icon" />
+              <span>{subscription.plan}</span>
+            </Link>
+          ) : (
+            <Link to="/subscription" className="subscribe-button">
+              <span>Подписка</span>
+            </Link>
           )}
         </div>
       </div>
