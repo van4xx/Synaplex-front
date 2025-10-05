@@ -103,8 +103,8 @@ export const ZapIcon = ({ className = "" }: { className?: string }) => (
 );
 
 export const SettingsIcon = ({ className = "" }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="3" />
-    <path d="M12 1v6m0 6v6m9.66-9H15m-6 0H3m9.66-5.66L10 7m0 10l-2.66 2.66m13.32 0L18 17m0-10l2.66-2.66" />
+    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
   </svg>
 );
