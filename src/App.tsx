@@ -10,7 +10,6 @@ import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
 import SubscriptionPage from './pages/SubscriptionPage';
 import HistoryPage from './pages/HistoryPage';
-import StatsPage from './pages/StatsPage';
 import SettingsPage from './pages/SettingsPage';
 
 function App() {
