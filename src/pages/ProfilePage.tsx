@@ -1,5 +1,6 @@
 import { useUser } from '@/contexts/UserContext';
 import { useTelegram } from '@/contexts/TelegramContext';
+import { DiamondIcon, ZapIcon, CheckIcon } from '@/components/Icons';
 import './ProfilePage.css';
 
 export default function ProfilePage() {

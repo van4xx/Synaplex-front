@@ -1,9 +1,8 @@
 import { useUser } from '@/contexts/UserContext';
-import { useTelegram } from '@/contexts/TelegramContext';
+import { BrainIcon, ImageIcon, VideoIcon, MusicIcon, ZapIcon, RocketIcon } from '@/components/Icons';
 import './HomePage.css';
 
 export default function HomePage() {
-  const { user } = useTelegram();
   const { userData, loading } = useUser();
 
   if (loading) {
@@ -20,102 +19,100 @@ export default function HomePage() {
   return (
     <div className="page-container home-page">
       <div className="hero-section">
-        <h1>NeiroBOT</h1>
-        <p className="hero-subtitle">AI агрегатор нейросетей</p>
-      </div>
-
-      <div className="welcome-card card">
-        <h2>👋 Привет, {user?.first_name || 'Пользователь'}!</h2>
-        <p>
-          Добро пожаловать в личный кабинет NeiroBOT — мощного агрегатора 
-          искусственного интеллекта.
+        <div className="hero-icon">
+          <RocketIcon className="rocket-icon" />
+        </div>
+        <h1>Мощь нейросетей в одном месте</h1>
+        <p className="hero-subtitle">
+          Создавайте с помощью лучших AI моделей
         </p>
       </div>
 
-      {hasActiveSubscription ? (
-        <div className="subscription-status card">
-          <div className="flex justify-between items-center">
-            <div>
-              <h3>💎 Подписка активна</h3>
-              <p className="plan-name">{subscription.plan}</p>
-            </div>
-            <div className="subscription-badge badge badge-success">
-              Активна
+      {hasActiveSubscription && (
+        <div className="quick-stats card">
+          <div className="stat-item-inline">
+            <ZapIcon className="stat-icon-inline" />
+            <div className="stat-info-inline">
+              <div className="stat-value-inline">{subscription.requestsUsed}</div>
+              <div className="stat-label-inline">Использовано</div>
             </div>
           </div>
-          <div className="usage-info mt-2">
-            {subscription.requestsLimit > 0 ? (
-              <>
-                <p>Использовано запросов:</p>
-                <div className="progress-bar">
-                  <div 
-                    className="progress-fill"
-                    style={{
-                      width: `${(subscription.requestsUsed / subscription.requestsLimit) * 100}%`
-                    }}
-                  />
-                </div>
-                <p className="text-muted">
-                  {subscription.requestsUsed} / {subscription.requestsLimit}
-                </p>
-              </>
-            ) : (
-              <p className="text-center">♾️ Безлимитные запросы</p>
-            )}
+          <div className="stat-divider" />
+          <div className="stat-item-inline">
+            <ZapIcon className="stat-icon-inline" />
+            <div className="stat-info-inline">
+              <div className="stat-value-inline">
+                {subscription.requestsLimit > 0 ? subscription.requestsLimit - subscription.requestsUsed : '∞'}
+              </div>
+              <div className="stat-label-inline">Осталось</div>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="no-subscription card">
-          <h3>❌ Нет активной подписки</h3>
-          <p>Оформите подписку, чтобы начать использовать нейросети</p>
-          <button className="btn btn-primary mt-2">
-            Выбрать подписку
-          </button>
         </div>
       )}
 
-      <div className="features-grid">
-        <div className="feature-card card">
-          <div className="feature-icon">✍️</div>
-          <h3>Текст</h3>
-          <p>GPT-4, Claude, Gemini, Mistral, Llama</p>
-        </div>
+      <div className="capabilities-section">
+        <h2>Что вы можете создать</h2>
         
-        <div className="feature-card card">
-          <div className="feature-icon">🎨</div>
-          <h3>Изображения</h3>
-          <p>SDXL, Flux.1, Stable Diffusion 3</p>
-        </div>
-        
-        <div className="feature-card card">
-          <div className="feature-icon">🎬</div>
-          <h3>Видео</h3>
-          <p>Runway, Pika, Kling, Veo 3</p>
-        </div>
-        
-        <div className="feature-card card">
-          <div className="feature-icon">🎵</div>
-          <h3>Аудио</h3>
-          <p>ElevenLabs, Suno, PlayHT</p>
-        </div>
-      </div>
-
-      <div className="stats-overview card">
-        <h3>📊 Ваша статистика</h3>
-        <div className="stats-grid">
-          <div className="stat-item">
-            <div className="stat-value">{userData?.stats?.totalRequests || 0}</div>
-            <div className="stat-label">Запросов</div>
+        <div className="capabilities-grid">
+          <div className="capability-card card">
+            <div className="capability-icon-wrapper">
+              <BrainIcon className="capability-icon" />
+            </div>
+            <h3>Текст</h3>
+            <p>GPT-4, Claude 3, Gemini и другие</p>
+            <ul className="model-list">
+              <li>Статьи и посты</li>
+              <li>Код и скрипты</li>
+              <li>Переводы</li>
+            </ul>
           </div>
-          <div className="stat-item">
-            <div className="stat-value">{userData?.stats?.totalSpent || 0} ₽</div>
-            <div className="stat-label">Потрачено</div>
+
+          <div className="capability-card card">
+            <div className="capability-icon-wrapper">
+              <ImageIcon className="capability-icon" />
+            </div>
+            <h3>Изображения</h3>
+            <p>SDXL, Flux.1, SD3</p>
+            <ul className="model-list">
+              <li>Арты</li>
+              <li>Логотипы</li>
+              <li>Концепт-арт</li>
+            </ul>
+          </div>
+
+          <div className="capability-card card">
+            <div className="capability-icon-wrapper">
+              <VideoIcon className="capability-icon" />
+            </div>
+            <h3>Видео</h3>
+            <p>Runway, Pika, Kling</p>
+            <ul className="model-list">
+              <li>Ролики</li>
+              <li>Анимации</li>
+              <li>Визуализации</li>
+            </ul>
+          </div>
+
+          <div className="capability-card card">
+            <div className="capability-icon-wrapper">
+              <MusicIcon className="capability-icon" />
+            </div>
+            <h3>Аудио</h3>
+            <p>ElevenLabs, Suno</p>
+            <ul className="model-list">
+              <li>Озвучка</li>
+              <li>Музыка</li>
+              <li>Эффекты</li>
+            </ul>
           </div>
         </div>
       </div>
 
       <div className="cta-section card">
-        <h3>🚀 Начните прямо сейчас</h3>
+        <div className="cta-icon-wrapper">
+          <RocketIcon className="cta-icon" />
+        </div>
+        <h3>Готовы начать?</h3>
         <p>Отправьте сообщение боту с вашим промптом</p>
         <button 
           className="btn btn-primary"
