@@ -18,7 +18,8 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
   const steps = [
     {
       icon: <BrainIcon className="onboarding-icon" />,
-      title: 'Добро пожаловать в NeiroBOT',
+      title: 'Synaplex',
+      subtitle: 'Интеллект без границ',
       description: 'Мощный агрегатор нейросетей в одном месте. Генерируйте тексты, изображения, видео и музыку с помощью лучших AI моделей.',
       features: [
         'GPT-4, Claude 3, Gemini',
@@ -29,7 +30,8 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
     {
       icon: <ZapIcon className="onboarding-icon" />,
       title: 'Как это работает?',
-      description: 'Просто отправьте промпт боту или используйте Mini App для управления. Ваши запросы обрабатываются в очереди с приоритетом в зависимости от подписки.',
+      subtitle: 'Просто и быстро',
+      description: 'Отправьте промпт боту или используйте Mini App для управления. Ваши запросы обрабатываются в очереди с приоритетом.',
       features: [
         'Отправьте текст боту для генерации',
         'Используйте команды: /image, /video, /audio',
@@ -39,7 +41,8 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
     {
       icon: <RocketIcon className="onboarding-icon" />,
       title: 'Выберите подписку',
-      description: 'От базового до безлимитного плана. Начните с бесплатного тестирования или выберите план, который подходит именно вам.',
+      subtitle: 'Гибкие тарифы',
+      description: 'От базового до безлимитного плана. Выберите план, который идеально подходит под ваши задачи.',
       features: [
         '5 уровней подписок от 490₽',
         'Приоритетная обработка запросов',
@@ -83,12 +86,13 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
         </div>
 
         <h1 className="onboarding-title">{currentStep.title}</h1>
+        <p className="onboarding-subtitle">{currentStep.subtitle}</p>
         <p className="onboarding-description">{currentStep.description}</p>
 
         <div className="onboarding-features">
           {currentStep.features.map((feature, index) => (
             <div key={index} className="feature-item" style={{ animationDelay: `${index * 0.1}s` }}>
-              <SparklesIcon className="feature-icon" />
+              <div className="feature-dot"></div>
               <span>{feature}</span>
             </div>
           ))}
@@ -110,7 +114,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
         </div>
 
         <button className="next-button-wide" onClick={handleNext}>
-          {step < steps.length - 1 ? 'Далее' : 'Начать'}
+          <span>{step < steps.length - 1 ? 'Далее' : 'Начать'}</span>
           <div className="button-glow" />
         </button>
       </div>
