@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { TelegramProvider } from './contexts/TelegramContext';
 import { UserProvider } from './contexts/UserContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Layout from './components/Layout';
 import Onboarding from './components/Onboarding';
 import ParticleBackground from './components/ParticleBackground';
@@ -54,22 +55,24 @@ function App() {
   }
 
   return (
-    <TelegramProvider>
-      <UserProvider>
-        <ParticleBackground />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="profile" element={<ProfilePage />} />
-            <Route path="subscription" element={<SubscriptionPage />} />
-            <Route path="history" element={<HistoryPage />} />
-            <Route path="stats" element={<StatsPage />} />
-            <Route path="settings" element={<SettingsPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Route>
-        </Routes>
-      </UserProvider>
-    </TelegramProvider>
+    <ThemeProvider>
+      <TelegramProvider>
+        <UserProvider>
+          <ParticleBackground />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="subscription" element={<SubscriptionPage />} />
+              <Route path="history" element={<HistoryPage />} />
+              <Route path="stats" element={<StatsPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Route>
+          </Routes>
+        </UserProvider>
+      </TelegramProvider>
+    </ThemeProvider>
   );
 }
 
