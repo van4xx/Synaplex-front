@@ -61,24 +61,6 @@
   animation: fadeIn 0.5s ease;
 }
 
-.skip-button {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: transparent;
-  border: 1px solid var(--color-gray);
-  color: var(--color-white-60);
-  padding: 8px 16px;
-  border-radius: var(--border-radius-sm);
-  font-size: 14px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.skip-button:hover {
-  border-color: var(--color-red);
-  color: var(--color-red);
-}
 
 /* Icon */
 .onboarding-icon-wrapper {
@@ -201,9 +183,8 @@
 /* Footer */
 .onboarding-footer {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
 }
 
 .progress-dots {
@@ -236,10 +217,15 @@
   transform: scale(1.2);
 }
 
-/* Next button */
-.next-button {
-  position: relative;
-  padding: 16px 48px;
+/* Next button - широкая внизу */
+.next-button-wide {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 500px;
+  padding: 18px;
   background: var(--gradient-red);
   border: none;
   border-radius: var(--border-radius);
@@ -249,16 +235,17 @@
   cursor: pointer;
   overflow: hidden;
   transition: var(--transition);
-  box-shadow: var(--shadow-md);
-}
-
-.next-button:hover {
-  transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+  z-index: 10;
 }
 
-.next-button:active {
-  transform: translateY(0);
+.next-button-wide:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 0, 0, 0.5);
+}
+
+.next-button-wide:active {
+  transform: translateX(-50%) translateY(0);
 }
 
 .button-glow {

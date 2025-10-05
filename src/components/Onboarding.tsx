@@ -81,10 +81,6 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
       </div>
 
       <div className={`onboarding-content ${isAnimating ? 'fade-in' : ''}`}>
-        <button className="skip-button" onClick={handleSkip}>
-          Пропустить
-        </button>
-
         <div className="onboarding-icon-wrapper">
           {currentStep.icon}
           <div className="icon-glow" />
@@ -115,12 +111,12 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
               />
             ))}
           </div>
-
-          <button className="next-button" onClick={handleNext}>
-            {step < steps.length - 1 ? 'Далее' : 'Начать'}
-            <div className="button-glow" />
-          </button>
         </div>
+
+        <button className="next-button-wide" onClick={handleNext}>
+          {step < steps.length - 1 ? 'Далее' : 'Начать'}
+          <div className="button-glow" />
+        </button>
       </div>
     </div>
   );
