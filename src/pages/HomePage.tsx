@@ -1,4 +1,5 @@
 import { useUser } from '@/contexts/UserContext';
+import { BrainIcon, ImageIcon, VideoIcon, MusicIcon } from '@/components/Icons';
 import './HomePage.css';
 
 export default function HomePage() {
@@ -55,39 +56,29 @@ export default function HomePage() {
         </div>
       )}
 
-      <div className="features-simple">
-        <h3 className="section-title">Что умеет бот</h3>
-        
-        <div className="feature-item">
-          <div className="feature-emoji">✨</div>
-          <div className="feature-content">
-            <div className="feature-title">Текст</div>
-            <div className="feature-desc">GPT-4, Claude, Gemini, Llama</div>
-          </div>
+      <div className="features-grid-chess">
+        <div className="feature-chess-item card">
+          <BrainIcon className="feature-icon" />
+          <h3 className="feature-chess-title">Текст</h3>
+          <p className="feature-chess-desc">GPT-4, Claude, Gemini, Llama</p>
         </div>
 
-        <div className="feature-item">
-          <div className="feature-emoji">🎨</div>
-          <div className="feature-content">
-            <div className="feature-title">Изображения</div>
-            <div className="feature-desc">FLUX.1, SDXL, Stable Diffusion</div>
-          </div>
+        <div className="feature-chess-item card">
+          <ImageIcon className="feature-icon" />
+          <h3 className="feature-chess-title">Изображения</h3>
+          <p className="feature-chess-desc">FLUX.1, SDXL, Stable Diffusion</p>
         </div>
 
-        <div className="feature-item">
-          <div className="feature-emoji">🎬</div>
-          <div className="feature-content">
-            <div className="feature-title">Видео</div>
-            <div className="feature-desc">Runway, Pika, Kling, Veo</div>
-          </div>
+        <div className="feature-chess-item card">
+          <VideoIcon className="feature-icon" />
+          <h3 className="feature-chess-title">Видео</h3>
+          <p className="feature-chess-desc">Runway, Pika, Kling, Veo</p>
         </div>
 
-        <div className="feature-item">
-          <div className="feature-emoji">🎵</div>
-          <div className="feature-content">
-            <div className="feature-title">Музыка и голос</div>
-            <div className="feature-desc">Suno, ElevenLabs, PlayHT</div>
-          </div>
+        <div className="feature-chess-item card">
+          <MusicIcon className="feature-icon" />
+          <h3 className="feature-chess-title">Музыка</h3>
+          <p className="feature-chess-desc">Suno, ElevenLabs, PlayHT</p>
         </div>
       </div>
 

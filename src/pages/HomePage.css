@@ -114,57 +114,43 @@
   margin-bottom: 16px;
 }
 
-/* Features */
-.features-simple {
+/* Features - шахматная сетка */
+.features-grid-chess {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   margin-bottom: 32px;
 }
 
-.section-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--color-text);
+.feature-chess-item {
+  padding: 24px 16px;
+  text-align: center;
+  transition: var(--transition);
 }
 
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--color-border);
+.feature-chess-item:hover {
+  transform: translateY(-4px);
 }
 
-.feature-item:last-child {
-  border-bottom: none;
-}
-
-.feature-emoji {
-  font-size: 32px;
+.feature-icon {
   width: 48px;
   height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-surface);
-  border-radius: 12px;
-  flex-shrink: 0;
+  color: var(--color-accent);
+  margin: 0 auto 16px;
+  filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.3));
 }
 
-.feature-content {
-  flex: 1;
-}
-
-.feature-title {
-  font-size: 16px;
-  font-weight: 600;
+.feature-chess-title {
+  font-size: 18px;
+  font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
-.feature-desc {
+.feature-chess-desc {
   font-size: 13px;
   color: var(--color-text-muted);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* Button */

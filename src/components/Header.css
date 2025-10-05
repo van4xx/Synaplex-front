@@ -11,6 +11,10 @@
   box-shadow: var(--shadow-sm);
 }
 
+[data-theme="light"] .mini-header {
+  background: rgba(255, 255, 255, 0.9);
+}
+
 .header-content {
   display: flex;
   justify-content: space-between;
