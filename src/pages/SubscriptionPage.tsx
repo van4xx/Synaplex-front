@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './SubscriptionPage.css';
 
 const plans = [
@@ -126,13 +127,13 @@ export default function SubscriptionPage() {
       </div>
 
       <div className="legal-links">
-        <a href="/privacy" className="legal-link">
+        <Link to="/privacy" className="legal-link">
           Политика конфиденциальности
-        </a>
+        </Link>
         <span className="legal-divider">•</span>
-        <a href="/terms" className="legal-link">
+        <Link to="/terms" className="legal-link">
           Условия использования
-        </a>
+        </Link>
       </div>
     </div>
   );

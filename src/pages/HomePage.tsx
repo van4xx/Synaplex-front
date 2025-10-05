@@ -20,7 +20,8 @@ export default function HomePage() {
     <div className="page-container home-page">
       <div className="hero-main">
         <div className="hero-badge">AI Агрегатор</div>
-        <h1 className="hero-title-big">NeiroBOT</h1>
+        <h1 className="hero-title-big">Synaplex</h1>
+        <p className="hero-subtitle">Интеллект без границ</p>
         <p className="hero-description">
           Доступ ко всем популярным нейросетям в одном месте. 
           Генерация текста, изображений, видео и музыки.
