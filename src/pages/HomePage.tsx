@@ -17,75 +17,86 @@ export default function HomePage() {
 
   return (
     <div className="page-container home-page">
-      <div className="hero-minimal stagger-item">
-        <h1 className="hero-title">NeiroBOT</h1>
-        <p className="hero-desc">Доступ к лучшим AI моделям в одном месте</p>
+      <div className="hero-main">
+        <div className="hero-badge">AI Агрегатор</div>
+        <h1 className="hero-title-big">NeiroBOT</h1>
+        <p className="hero-description">
+          Доступ ко всем популярным нейросетям в одном месте. 
+          Генерация текста, изображений, видео и музыки.
+        </p>
       </div>
 
-      {hasActiveSubscription && (
-        <div className="quick-access stagger-item">
-          <div className="access-card card">
-            <div className="access-label">Использовано</div>
-            <div className="access-value">{subscription.requestsUsed}</div>
+      {hasActiveSubscription ? (
+        <div className="usage-card card">
+          <div className="usage-header">
+            <span className="usage-label">Ваша подписка</span>
+            <span className="usage-plan">{subscription.plan}</span>
           </div>
-          <div className="access-divider" />
-          <div className="access-card card">
-            <div className="access-label">Осталось</div>
-            <div className="access-value">
-              {subscription.requestsLimit > 0 ? subscription.requestsLimit - subscription.requestsUsed : '∞'}
+          <div className="usage-stats">
+            <div className="usage-item">
+              <div className="usage-number">{subscription.requestsUsed}</div>
+              <div className="usage-text">использовано</div>
+            </div>
+            <div className="usage-divider" />
+            <div className="usage-item">
+              <div className="usage-number">
+                {subscription.requestsLimit > 0 ? subscription.requestsLimit - subscription.requestsUsed : '∞'}
+              </div>
+              <div className="usage-text">осталось</div>
             </div>
           </div>
         </div>
+      ) : (
+        <div className="no-subscription-banner card">
+          <p className="banner-text">Выберите подписку для начала работы</p>
+          <a href="/subscription" className="btn btn-primary">
+            Посмотреть тарифы
+          </a>
+        </div>
       )}
 
-      <div className="models-grid">
-        <div className="model-category card stagger-item">
-          <h3>Текст</h3>
-          <div className="model-tags">
-            <span className="model-tag">GPT-4</span>
-            <span className="model-tag">Claude 3</span>
-            <span className="model-tag">Gemini</span>
-            <span className="model-tag">Llama</span>
+      <div className="features-simple">
+        <h3 className="section-title">Что умеет бот</h3>
+        
+        <div className="feature-item">
+          <div className="feature-emoji">✨</div>
+          <div className="feature-content">
+            <div className="feature-title">Текст</div>
+            <div className="feature-desc">GPT-4, Claude, Gemini, Llama</div>
           </div>
         </div>
 
-        <div className="model-category card stagger-item">
-          <h3>Изображения</h3>
-          <div className="model-tags">
-            <span className="model-tag">FLUX.1</span>
-            <span className="model-tag">SDXL</span>
-            <span className="model-tag">SD3</span>
+        <div className="feature-item">
+          <div className="feature-emoji">🎨</div>
+          <div className="feature-content">
+            <div className="feature-title">Изображения</div>
+            <div className="feature-desc">FLUX.1, SDXL, Stable Diffusion</div>
           </div>
         </div>
 
-        <div className="model-category card stagger-item">
-          <h3>Видео</h3>
-          <div className="model-tags">
-            <span className="model-tag">Runway</span>
-            <span className="model-tag">Pika</span>
-            <span className="model-tag">Kling</span>
+        <div className="feature-item">
+          <div className="feature-emoji">🎬</div>
+          <div className="feature-content">
+            <div className="feature-title">Видео</div>
+            <div className="feature-desc">Runway, Pika, Kling, Veo</div>
           </div>
         </div>
 
-        <div className="model-category card stagger-item">
-          <h3>Аудио</h3>
-          <div className="model-tags">
-            <span className="model-tag">ElevenLabs</span>
-            <span className="model-tag">Suno</span>
-            <span className="model-tag">PlayHT</span>
+        <div className="feature-item">
+          <div className="feature-emoji">🎵</div>
+          <div className="feature-content">
+            <div className="feature-title">Музыка и голос</div>
+            <div className="feature-desc">Suno, ElevenLabs, PlayHT</div>
           </div>
         </div>
       </div>
 
-      <div className="cta-card card stagger-item">
-        <p className="cta-text">Начните работу с ботом</p>
-        <button 
-          className="btn btn-primary"
-          onClick={() => window.Telegram?.WebApp?.close()}
-        >
-          Открыть чат
-        </button>
-      </div>
+      <button 
+        className="btn btn-primary btn-large"
+        onClick={() => window.Telegram?.WebApp?.close()}
+      >
+        Открыть чат с ботом
+      </button>
     </div>
   );
 }

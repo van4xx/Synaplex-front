@@ -115,7 +115,7 @@ export default function SubscriptionPage() {
         ))}
       </div>
 
-      <div className="subscription-info card">
+      <div className="subscription-info card stagger-item">
         <h3>Информация о подписках</h3>
         <ul className="info-list">
           <li>Подписка продлевается автоматически каждый месяц</li>
@@ -123,6 +123,16 @@ export default function SubscriptionPage() {
           <li>Неиспользованные запросы не переносятся на следующий месяц</li>
           <li>Все цены указаны в рублях</li>
         </ul>
+      </div>
+
+      <div className="legal-links">
+        <a href="/privacy" className="legal-link">
+          Политика конфиденциальности
+        </a>
+        <span className="legal-divider">•</span>
+        <a href="/terms" className="legal-link">
+          Условия использования
+        </a>
       </div>
     </div>
   );
