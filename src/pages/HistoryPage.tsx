@@ -59,24 +59,23 @@ export default function HistoryPage() {
 
   return (
     <div className="page-container history-page">
-      <h1>📜 История запросов</h1>
+      <h1>История запросов</h1>
 
       {requests.length === 0 ? (
         <div className="empty-state card">
-          <p className="empty-icon">📭</p>
           <p>Пока нет запросов</p>
           <p className="text-muted">Начните использовать бота</p>
         </div>
       ) : (
         <div className="requests-list">
           {requests.map((request) => (
-            <div key={request.id} className="request-card card">
+            <div key={request.id} className="request-card card stagger-item">
               <div className="request-header">
                 <span className="request-type">
-                  {typeIcons[request.serviceType]} {request.modelName}
+                  {request.modelName}
                 </span>
                 <span className={`badge badge-${request.status === 'COMPLETED' ? 'success' : request.status === 'FAILED' ? 'danger' : 'warning'}`}>
-                  {statusEmoji[request.status]} {request.status}
+                  {request.status}
                 </span>
               </div>
               
@@ -98,7 +97,7 @@ export default function HistoryPage() {
                 </span>
                 {request.processingTime && (
                   <span className="request-time">
-                    ⏱️ {(request.processingTime / 1000).toFixed(1)}с
+                    {(request.processingTime / 1000).toFixed(1)}с
                   </span>
                 )}
               </div>

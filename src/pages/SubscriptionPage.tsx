@@ -81,53 +81,33 @@ export default function SubscriptionPage() {
 
   return (
     <div className="page-container subscription-page">
-      <div className="subscription-header">
-        <DiamondIcon className="header-icon" />
-        <h1>Подписки</h1>
-        <p className="page-subtitle">
-          Выберите план, который подходит именно вам
-        </p>
-      </div>
+      <h1>Подписки</h1>
 
-      <div className="plans-list">
-        {plans.map((plan) => (
+      <div className="plans-compact">
+        {plans.map((plan, index) => (
           <div 
             key={plan.id}
-            className={`plan-card-compact card ${plan.popular ? 'popular' : ''}`}
+            className={`plan-row card ${plan.popular ? 'plan-popular' : ''} stagger-item`}
+            style={{ animationDelay: `${index * 0.1}s` }}
           >
-            {plan.popular && (
-              <div className="popular-badge">Популярный</div>
-            )}
-            
-            <div className="plan-header-compact">
-              <div className="plan-level">
-                {[...Array(plan.level)].map((_, i) => (
-                  <DiamondIcon key={i} className="level-icon" />
-                ))}
+            <div className="plan-main">
+              <div className="plan-title-row">
+                <h3 className="plan-title">{plan.nameRu}</h3>
+                {plan.popular && <span className="badge badge-success">Популярный</span>}
               </div>
-              <div className="plan-info-compact">
-                <h3 className="plan-name-compact">{plan.nameRu}</h3>
-                <div className="plan-requests-compact">
-                  {plan.requests > 0 ? `${plan.requests} запросов` : 'Безлимит'}
+              <div className="plan-details-row">
+                <span className="plan-requests-mini">
+                  {plan.requests > 0 ? `${plan.requests} запросов` : '∞ Безлимит'}
+                </span>
+                <div className="plan-price-mini">
+                  <span className="price-number">{plan.price}</span>
+                  <span className="price-rub">₽/мес</span>
                 </div>
               </div>
-              <div className="plan-price-compact">
-                <span className="price-amount-compact">{plan.price}</span>
-                <span className="price-currency-compact">₽</span>
-              </div>
             </div>
-
-            <ul className="plan-features-compact">
-              {plan.features.map((feature, index) => (
-                <li key={index}>
-                  <CheckIcon className="feature-check-icon" />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-
+            
             <button
-              className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} subscribe-btn-compact`}
+              className={`btn-compact ${plan.popular ? 'btn-primary' : 'btn-secondary'}`}
               onClick={() => handleSubscribe(plan.id)}
             >
               Выбрать

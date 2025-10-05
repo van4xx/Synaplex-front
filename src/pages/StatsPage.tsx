@@ -51,9 +51,9 @@ export default function StatsPage() {
 
   return (
     <div className="page-container stats-page">
-      <h1>📊 Статистика</h1>
+      <h1>Статистика</h1>
 
-      <div className="total-stats card">
+      <div className="total-stats card stagger-item">
         <h3>Общая статистика</h3>
         <div className="stats-grid">
           <div className="stat-box">
@@ -68,7 +68,7 @@ export default function StatsPage() {
       </div>
 
       {stats?.byType && stats.byType.length > 0 && (
-        <div className="type-stats card">
+        <div className="type-stats card stagger-item">
           <h3>По типам</h3>
           <div className="stats-list">
             {stats.byType.map((item: any) => {
@@ -98,7 +98,7 @@ export default function StatsPage() {
       )}
 
       {stats?.byModel && stats.byModel.length > 0 && (
-        <div className="model-stats card">
+        <div className="model-stats card stagger-item">
           <h3>По моделям</h3>
           <div className="models-list">
             {stats.byModel.map((item: any) => (
@@ -113,7 +113,6 @@ export default function StatsPage() {
 
       {(!stats?.byType || stats.byType.length === 0) && (
         <div className="empty-state card">
-          <p className="empty-icon">📊</p>
           <p>Пока нет статистики</p>
           <p className="text-muted">Начните использовать бота</p>
         </div>

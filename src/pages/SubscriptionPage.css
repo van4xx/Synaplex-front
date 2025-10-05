@@ -1,136 +1,83 @@
-.subscription-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.header-icon {
-  width: 48px;
-  height: 48px;
-  color: var(--color-red);
-  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.5));
-  margin-bottom: 12px;
-}
-
 .subscription-page h1 {
-  margin-bottom: 8px;
-}
-
-.page-subtitle {
-  text-align: center;
-  color: var(--color-white-60);
-  font-size: 14px;
   margin-bottom: 20px;
 }
 
-.plans-list {
+.plans-compact {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.plan-card-compact {
-  position: relative;
+.plan-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 16px;
+  gap: 16px;
   transition: var(--transition);
 }
 
-.plan-card-compact.popular {
-  border-color: var(--color-red);
-  box-shadow: var(--shadow-md);
+.plan-row.plan-popular {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
 }
 
-.popular-badge {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: var(--gradient-red);
-  color: var(--color-white);
-  padding: 4px 8px;
-  border-radius: 10px;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.plan-header-compact {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.plan-level {
-  display: flex;
-  gap: 2px;
-  flex-shrink: 0;
-}
-
-.level-icon {
-  width: 12px;
-  height: 12px;
-  color: var(--color-red);
-}
-
-.plan-info-compact {
+.plan-main {
   flex: 1;
 }
 
-.plan-name-compact {
+.plan-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.plan-title {
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 2px;
-  color: var(--color-white);
+  margin: 0;
+  color: var(--color-text);
 }
 
-.plan-requests-compact {
-  font-size: 11px;
-  color: var(--color-white-60);
+.plan-details-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.plan-price-compact {
+.plan-requests-mini {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.plan-price-mini {
   display: flex;
   align-items: baseline;
   gap: 2px;
 }
 
-.price-amount-compact {
-  font-size: 24px;
+.price-number {
+  font-size: 20px;
   font-weight: 700;
-  color: var(--color-red);
+  color: var(--color-accent);
 }
 
-.price-currency-compact {
+.price-rub {
   font-size: 12px;
-  color: var(--color-white-60);
+  color: var(--color-text-muted);
 }
 
-.plan-features-compact {
-  list-style: none;
-  margin-bottom: 12px;
-  padding-left: 0;
-}
-
-.plan-features-compact li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 0;
-  font-size: 12px;
-  color: var(--color-white-80);
-}
-
-.feature-check-icon {
-  width: 12px;
-  height: 12px;
-  color: var(--color-red);
-  flex-shrink: 0;
-}
-
-.subscribe-btn-compact {
-  width: 100%;
-  padding: 10px;
+.btn-compact {
+  padding: 10px 24px;
+  border: none;
+  border-radius: var(--border-radius-sm);
   font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
 }
 
 .subscription-info {
