@@ -1,5 +1,4 @@
 import { useUser } from '@/contexts/UserContext';
-import { BrainIcon, ImageIcon, VideoIcon, MusicIcon, ZapIcon, RocketIcon } from '@/components/Icons';
 import './HomePage.css';
 
 export default function HomePage() {
@@ -18,107 +17,73 @@ export default function HomePage() {
 
   return (
     <div className="page-container home-page">
-      <div className="hero-section">
-        <div className="hero-icon">
-          <RocketIcon className="rocket-icon" />
-        </div>
-        <h1>Мощь нейросетей в одном месте</h1>
-        <p className="hero-subtitle">
-          Создавайте с помощью лучших AI моделей
-        </p>
+      <div className="hero-minimal stagger-item">
+        <h1 className="hero-title">NeiroBOT</h1>
+        <p className="hero-desc">Доступ к лучшим AI моделям в одном месте</p>
       </div>
 
       {hasActiveSubscription && (
-        <div className="quick-stats card">
-          <div className="stat-item-inline">
-            <ZapIcon className="stat-icon-inline" />
-            <div className="stat-info-inline">
-              <div className="stat-value-inline">{subscription.requestsUsed}</div>
-              <div className="stat-label-inline">Использовано</div>
-            </div>
+        <div className="quick-access stagger-item">
+          <div className="access-card card">
+            <div className="access-label">Использовано</div>
+            <div className="access-value">{subscription.requestsUsed}</div>
           </div>
-          <div className="stat-divider" />
-          <div className="stat-item-inline">
-            <ZapIcon className="stat-icon-inline" />
-            <div className="stat-info-inline">
-              <div className="stat-value-inline">
-                {subscription.requestsLimit > 0 ? subscription.requestsLimit - subscription.requestsUsed : '∞'}
-              </div>
-              <div className="stat-label-inline">Осталось</div>
+          <div className="access-divider" />
+          <div className="access-card card">
+            <div className="access-label">Осталось</div>
+            <div className="access-value">
+              {subscription.requestsLimit > 0 ? subscription.requestsLimit - subscription.requestsUsed : '∞'}
             </div>
           </div>
         </div>
       )}
 
-      <div className="capabilities-section">
-        <h2>Что вы можете создать</h2>
-        
-        <div className="capabilities-grid">
-          <div className="capability-card card">
-            <div className="capability-icon-wrapper">
-              <BrainIcon className="capability-icon" />
-            </div>
-            <h3>Текст</h3>
-            <p>GPT-4, Claude 3, Gemini и другие</p>
-            <ul className="model-list">
-              <li>Статьи и посты</li>
-              <li>Код и скрипты</li>
-              <li>Переводы</li>
-            </ul>
+      <div className="models-grid">
+        <div className="model-category card stagger-item">
+          <h3>Текст</h3>
+          <div className="model-tags">
+            <span className="model-tag">GPT-4</span>
+            <span className="model-tag">Claude 3</span>
+            <span className="model-tag">Gemini</span>
+            <span className="model-tag">Llama</span>
           </div>
+        </div>
 
-          <div className="capability-card card">
-            <div className="capability-icon-wrapper">
-              <ImageIcon className="capability-icon" />
-            </div>
-            <h3>Изображения</h3>
-            <p>SDXL, Flux.1, SD3</p>
-            <ul className="model-list">
-              <li>Арты</li>
-              <li>Логотипы</li>
-              <li>Концепт-арт</li>
-            </ul>
+        <div className="model-category card stagger-item">
+          <h3>Изображения</h3>
+          <div className="model-tags">
+            <span className="model-tag">FLUX.1</span>
+            <span className="model-tag">SDXL</span>
+            <span className="model-tag">SD3</span>
           </div>
+        </div>
 
-          <div className="capability-card card">
-            <div className="capability-icon-wrapper">
-              <VideoIcon className="capability-icon" />
-            </div>
-            <h3>Видео</h3>
-            <p>Runway, Pika, Kling</p>
-            <ul className="model-list">
-              <li>Ролики</li>
-              <li>Анимации</li>
-              <li>Визуализации</li>
-            </ul>
+        <div className="model-category card stagger-item">
+          <h3>Видео</h3>
+          <div className="model-tags">
+            <span className="model-tag">Runway</span>
+            <span className="model-tag">Pika</span>
+            <span className="model-tag">Kling</span>
           </div>
+        </div>
 
-          <div className="capability-card card">
-            <div className="capability-icon-wrapper">
-              <MusicIcon className="capability-icon" />
-            </div>
-            <h3>Аудио</h3>
-            <p>ElevenLabs, Suno</p>
-            <ul className="model-list">
-              <li>Озвучка</li>
-              <li>Музыка</li>
-              <li>Эффекты</li>
-            </ul>
+        <div className="model-category card stagger-item">
+          <h3>Аудио</h3>
+          <div className="model-tags">
+            <span className="model-tag">ElevenLabs</span>
+            <span className="model-tag">Suno</span>
+            <span className="model-tag">PlayHT</span>
           </div>
         </div>
       </div>
 
-      <div className="cta-section card">
-        <div className="cta-icon-wrapper">
-          <RocketIcon className="cta-icon" />
-        </div>
-        <h3>Готовы начать?</h3>
-        <p>Отправьте сообщение боту с вашим промптом</p>
+      <div className="cta-card card stagger-item">
+        <p className="cta-text">Начните работу с ботом</p>
         <button 
           className="btn btn-primary"
           onClick={() => window.Telegram?.WebApp?.close()}
         >
-          Открыть бота
+          Открыть чат
         </button>
       </div>
     </div>

@@ -5,9 +5,10 @@
   right: 0;
   display: flex;
   justify-content: space-around;
+  align-items: flex-end;
   background: rgba(15, 15, 20, 0.95);
   border-top: 1px solid var(--color-border);
-  padding: 8px;
+  padding: 8px 8px 12px;
   backdrop-filter: blur(20px);
   box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.5);
   z-index: 100;
@@ -19,12 +20,47 @@
   align-items: center;
   gap: 4px;
   padding: 8px 12px;
-  border-radius: var(--border-radius-sm);
   text-decoration: none;
   color: var(--color-text-muted);
   transition: var(--transition);
-  min-width: 60px;
   position: relative;
+  flex: 1;
+  max-width: 80px;
+}
+
+.nav-item-center {
+  flex: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.profile-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.6);
+  transition: var(--transition);
+  border: 3px solid var(--color-bg);
+}
+
+.nav-item-center.active .profile-circle {
+  box-shadow: 0 6px 24px rgba(139, 92, 246, 0.8);
+  transform: translateY(-4px);
+}
+
+.nav-item-center:hover .profile-circle {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.8);
+}
+
+.nav-icon-center {
+  width: 28px;
+  height: 28px;
+  color: #ffffff;
 }
 
 .nav-item::before {
@@ -40,15 +76,15 @@
   transition: transform 0.3s ease;
 }
 
-.nav-item:hover {
+.nav-item:not(.nav-item-center):hover {
   color: var(--color-text);
 }
 
-.nav-item.active {
+.nav-item:not(.nav-item-center).active {
   color: var(--color-accent);
 }
 
-.nav-item.active::before {
+.nav-item:not(.nav-item-center).active::before {
   transform: translateX(-50%) scaleX(1);
 }
 

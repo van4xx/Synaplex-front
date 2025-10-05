@@ -6,8 +6,8 @@
 .profile-hero {
   padding: 24px;
   margin-bottom: 16px;
-  background: var(--gradient-dark);
-  border: 1px solid var(--color-red);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
 }
 
 .profile-header {
@@ -21,12 +21,12 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--gradient-red);
+  background: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
 }
 
 .avatar-text {
@@ -41,7 +41,7 @@
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  background: var(--gradient-red);
+  background: var(--color-accent);
   filter: blur(8px);
   opacity: 0.5;
   animation: pulse 2s ease-in-out infinite;
@@ -53,7 +53,7 @@
 }
 
 .username {
-  color: var(--color-red);
+  color: var(--color-accent);
   font-size: 14px;
   margin-bottom: 4px;
   font-weight: 500;
@@ -80,7 +80,7 @@
 .card-icon {
   width: 24px;
   height: 24px;
-  color: var(--color-red);
+  color: var(--color-accent);
 }
 
 .card-header h3 {
@@ -93,8 +93,8 @@
   align-items: center;
   gap: 16px;
   padding: 20px;
-  background: rgba(255, 0, 0, 0.05);
-  border: 1px solid var(--color-red);
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: var(--border-radius);
   margin-bottom: 20px;
 }
@@ -102,7 +102,7 @@
 .badge-icon-large {
   width: 40px;
   height: 40px;
-  color: var(--color-red);
+  color: var(--color-accent);
   flex-shrink: 0;
 }
 
@@ -113,7 +113,7 @@
 .badge-plan {
   font-size: 20px;
   font-weight: 700;
-  color: var(--color-red);
+  color: var(--color-accent);
   margin-bottom: 6px;
 }
 
@@ -159,14 +159,14 @@
 
 .stat-progress-bar {
   height: 100%;
-  background: var(--gradient-red);
+  background: var(--color-accent);
   transition: width 0.3s ease;
 }
 
 .stat-value {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-white);
+  color: var(--color-text);
 }
 
 .stat-value-unlimited {
@@ -175,7 +175,7 @@
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-red);
+  color: var(--color-accent);
 }
 
 .unlimited-icon {
@@ -209,15 +209,15 @@
 .stat-card-icon {
   width: 32px;
   height: 32px;
-  color: var(--color-red);
+  color: var(--color-accent);
   margin-bottom: 12px;
-  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.3));
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.3));
 }
 
 .stat-card-value {
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-red);
+  color: var(--color-accent);
   margin-bottom: 6px;
 }
 

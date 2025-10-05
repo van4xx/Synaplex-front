@@ -65,7 +65,6 @@ function App() {
               <Route path="profile" element={<ProfilePage />} />
               <Route path="subscription" element={<SubscriptionPage />} />
               <Route path="history" element={<HistoryPage />} />
-              <Route path="stats" element={<StatsPage />} />
               <Route path="settings" element={<SettingsPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>

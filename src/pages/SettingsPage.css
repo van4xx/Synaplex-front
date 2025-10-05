@@ -80,17 +80,17 @@
 }
 
 .toggle input:checked + .toggle-slider {
-  background: var(--gradient-mixed);
-  border-color: var(--color-primary);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .toggle input:checked + .toggle-slider:before {
   transform: translateX(20px);
-  background: #000;
+  background: #fff;
 }
 
 .toggle:hover .toggle-slider {
-  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
 }
 
 .info-rows {
@@ -123,19 +123,19 @@
 }
 
 .danger-zone {
-  border-color: var(--color-secondary);
+  border-color: #ef4444;
 }
 
 .danger-zone h3 {
-  color: var(--color-secondary-light);
+  color: #ef4444;
 }
 
 .danger-zone .btn-outline {
-  border-color: var(--color-secondary);
-  color: var(--color-secondary-light);
+  border-color: #ef4444;
+  color: #ef4444;
 }
 
 .danger-zone .btn-outline:hover {
-  background: var(--color-secondary);
+  background: #ef4444;
   color: #fff;
 }

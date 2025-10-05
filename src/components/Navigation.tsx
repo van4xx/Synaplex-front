@@ -1,31 +1,50 @@
 import { NavLink } from 'react-router-dom';
-import { HomeIcon, ProfileIcon, DiamondIcon, HistoryIcon, StatsIcon } from './Icons';
+import { HomeIcon, ProfileIcon, DiamondIcon, HistoryIcon, SettingsIcon } from './Icons';
 import './Navigation.css';
 
 export default function Navigation() {
-  const navItems = [
-    { path: '/', icon: HomeIcon, label: 'Главная' },
-    { path: '/profile', icon: ProfileIcon, label: 'Профиль' },
-    { path: '/subscription', icon: DiamondIcon, label: 'Подписка' },
-    { path: '/history', icon: HistoryIcon, label: 'История' },
-    { path: '/stats', icon: StatsIcon, label: 'Статистика' }
-  ];
-
   return (
     <nav className="navigation">
-      {navItems.map((item) => {
-        const Icon = item.icon;
-        return (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-          >
-            <Icon className="nav-icon" />
-            <span className="nav-label">{item.label}</span>
-          </NavLink>
-        );
-      })}
+      <NavLink
+        to="/"
+        className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+      >
+        <HomeIcon className="nav-icon" />
+        <span className="nav-label">Главная</span>
+      </NavLink>
+
+      <NavLink
+        to="/subscription"
+        className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+      >
+        <DiamondIcon className="nav-icon" />
+        <span className="nav-label">Подписки</span>
+      </NavLink>
+
+      <NavLink
+        to="/profile"
+        className={({ isActive }) => `nav-item nav-item-center ${isActive ? 'active' : ''}`}
+      >
+        <div className="profile-circle">
+          <ProfileIcon className="nav-icon-center" />
+        </div>
+      </NavLink>
+
+      <NavLink
+        to="/history"
+        className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+      >
+        <HistoryIcon className="nav-icon" />
+        <span className="nav-label">История</span>
+      </NavLink>
+
+      <NavLink
+        to="/settings"
+        className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+      >
+        <SettingsIcon className="nav-icon" />
+        <span className="nav-label">Настройки</span>
+      </NavLink>
     </nav>
   );
 }
