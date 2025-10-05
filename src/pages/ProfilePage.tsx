@@ -19,89 +19,103 @@ export default function ProfilePage() {
 
   return (
     <div className="page-container profile-page">
-      <h1>👤 Профиль</h1>
-
-      <div className="profile-card card">
+      <div className="profile-hero card">
         <div className="profile-header">
           <div className="profile-avatar">
-            {user?.first_name?.[0] || '?'}
+            <span className="avatar-text">{user?.first_name?.[0]?.toUpperCase() || '?'}</span>
+            <div className="avatar-glow" />
           </div>
           <div className="profile-info">
-            <h2>{user?.first_name} {user?.last_name}</h2>
+            <h1>{user?.first_name} {user?.last_name}</h1>
             {user?.username && <p className="username">@{user.username}</p>}
-            <p className="user-id">ID: {userData?.telegramId}</p>
+            <p className="user-id">#{userData?.telegramId?.toString().slice(-6)}</p>
           </div>
         </div>
       </div>
 
       <div className="subscription-card card">
-        <h3>💎 Подписка</h3>
+        <div className="card-header">
+          <DiamondIcon className="card-icon" />
+          <h3>Подписка</h3>
+        </div>
         {subscription ? (
           <div className="subscription-details">
-            <div className="detail-row">
-              <span className="detail-label">План:</span>
-              <span className="detail-value">{subscription.plan}</span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">Статус:</span>
-              <span className={`badge ${subscription.status === 'ACTIVE' ? 'badge-success' : 'badge-danger'}`}>
-                {subscription.status === 'ACTIVE' ? 'Активна' : 'Неактивна'}
-              </span>
-            </div>
-            {subscription.requestsLimit > 0 && (
-              <div className="detail-row">
-                <span className="detail-label">Запросов:</span>
-                <span className="detail-value">
-                  {subscription.requestsUsed} / {subscription.requestsLimit}
-                </span>
+            <div className="subscription-badge-large">
+              <DiamondIcon className="badge-icon-large" />
+              <div className="badge-info">
+                <div className="badge-plan">{subscription.plan}</div>
+                <div className="badge-status">
+                  <CheckIcon className="check-icon" />
+                  <span>Активна</span>
+                </div>
               </div>
-            )}
-            {subscription.endDate && (
-              <div className="detail-row">
-                <span className="detail-label">Действует до:</span>
-                <span className="detail-value">
-                  {new Date(subscription.endDate).toLocaleDateString('ru-RU')}
-                </span>
-              </div>
-            )}
+            </div>
+
+            <div className="subscription-stats">
+              {subscription.requestsLimit > 0 ? (
+                <div className="stat-block">
+                  <div className="stat-label">Запросы</div>
+                  <div className="stat-progress">
+                    <div 
+                      className="stat-progress-bar"
+                      style={{
+                        width: `${(subscription.requestsUsed / subscription.requestsLimit) * 100}%`
+                      }}
+                    />
+                  </div>
+                  <div className="stat-value">
+                    {subscription.requestsUsed} / {subscription.requestsLimit}
+                  </div>
+                </div>
+              ) : (
+                <div className="stat-block">
+                  <div className="stat-label">Запросы</div>
+                  <div className="stat-value-unlimited">
+                    <ZapIcon className="unlimited-icon" />
+                    <span>Безлимит</span>
+                  </div>
+                </div>
+              )}
+              
+              {subscription.endDate && (
+                <div className="stat-block">
+                  <div className="stat-label">Действует до</div>
+                  <div className="stat-value">
+                    {new Date(subscription.endDate).toLocaleDateString('ru-RU')}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         ) : (
-          <p className="text-muted">Нет активной подписки</p>
+          <div className="no-subscription-block">
+            <p>Нет активной подписки</p>
+            <button className="btn btn-primary">Выбрать план</button>
+          </div>
         )}
       </div>
 
-      <div className="stats-card card">
-        <h3>📊 Статистика</h3>
-        <div className="stats-list">
-          <div className="stat-row">
-            <span className="stat-icon">📝</span>
-            <span className="stat-name">Всего запросов</span>
-            <span className="stat-count">{userData?.stats?.totalRequests || 0}</span>
-          </div>
-          <div className="stat-row">
-            <span className="stat-icon">💰</span>
-            <span className="stat-name">Потрачено</span>
-            <span className="stat-count">{userData?.stats?.totalSpent || 0} ₽</span>
-          </div>
+      <div className="stats-grid-profile">
+        <div className="stat-card-mini card">
+          <ZapIcon className="stat-card-icon" />
+          <div className="stat-card-value">{userData?.stats?.totalRequests || 0}</div>
+          <div className="stat-card-label">Запросов</div>
+        </div>
+        <div className="stat-card-mini card">
+          <DiamondIcon className="stat-card-icon" />
+          <div className="stat-card-value">{userData?.stats?.totalSpent || 0} ₽</div>
+          <div className="stat-card-label">Потрачено</div>
         </div>
       </div>
 
       <div className="referral-card card">
-        <h3>🔗 Реферальная программа</h3>
-        <p className="text-muted mb-2">
+        <h3>Реферальная программа</h3>
+        <p className="referral-description">
           Приглашайте друзей и получайте бонусы
         </p>
-        <div className="referral-link">
-          <input 
-            type="text" 
-            className="input" 
-            value={`https://t.me/bot?start=ref_${userData?.id}`}
-            readOnly
-          />
-          <button className="btn btn-primary mt-2">
-            Скопировать ссылку
-          </button>
-        </div>
+        <button className="btn btn-secondary btn-copy">
+          Скопировать ссылку
+        </button>
       </div>
     </div>
   );

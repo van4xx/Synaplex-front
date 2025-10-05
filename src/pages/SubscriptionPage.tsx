@@ -1,3 +1,4 @@
+import { CheckIcon, DiamondIcon } from '@/components/Icons';
 import './SubscriptionPage.css';
 
 const plans = [
@@ -5,7 +6,7 @@ const plans = [
     id: 'BASIC',
     name: 'Basic',
     nameRu: 'Базовый',
-    icon: '🥉',
+    level: 1,
     price: 490,
     requests: 100,
     features: [
@@ -18,7 +19,7 @@ const plans = [
     id: 'PRO',
     name: 'Pro',
     nameRu: 'Про',
-    icon: '🥈',
+    level: 2,
     price: 1490,
     requests: 500,
     features: [
@@ -33,7 +34,7 @@ const plans = [
     id: 'PRO_PLUS',
     name: 'Pro+',
     nameRu: 'Про+',
-    icon: '🥇',
+    level: 3,
     price: 2990,
     requests: 1500,
     features: [
@@ -47,7 +48,7 @@ const plans = [
     id: 'ULTRA',
     name: 'Ultra',
     nameRu: 'Ультра',
-    icon: '💎',
+    level: 4,
     price: 4990,
     requests: 5000,
     features: [
@@ -60,7 +61,7 @@ const plans = [
     id: 'ELITE',
     name: 'Elite',
     nameRu: 'Элита',
-    icon: '👑',
+    level: 5,
     price: 9990,
     requests: 0,
     features: [
@@ -80,58 +81,63 @@ export default function SubscriptionPage() {
 
   return (
     <div className="page-container subscription-page">
-      <h1>💎 Подписки</h1>
-      <p className="page-subtitle">
-        Выберите план, который подходит именно вам
-      </p>
+      <div className="subscription-header">
+        <DiamondIcon className="header-icon" />
+        <h1>Подписки</h1>
+        <p className="page-subtitle">
+          Выберите план, который подходит именно вам
+        </p>
+      </div>
 
-      <div className="plans-grid">
+      <div className="plans-list">
         {plans.map((plan) => (
           <div 
             key={plan.id}
-            className={`plan-card card ${plan.popular ? 'popular' : ''}`}
+            className={`plan-card-compact card ${plan.popular ? 'popular' : ''}`}
           >
             {plan.popular && (
               <div className="popular-badge">Популярный</div>
             )}
             
-            <div className="plan-icon">{plan.icon}</div>
-            <h3 className="plan-name">{plan.nameRu}</h3>
-            
-            <div className="plan-price">
-              <span className="price-amount">{plan.price}</span>
-              <span className="price-currency">₽/мес</span>
+            <div className="plan-header-compact">
+              <div className="plan-level">
+                {[...Array(plan.level)].map((_, i) => (
+                  <DiamondIcon key={i} className="level-icon" />
+                ))}
+              </div>
+              <div className="plan-info-compact">
+                <h3 className="plan-name-compact">{plan.nameRu}</h3>
+                <div className="plan-requests-compact">
+                  {plan.requests > 0 ? `${plan.requests} запросов` : 'Безлимит'}
+                </div>
+              </div>
+              <div className="plan-price-compact">
+                <span className="price-amount-compact">{plan.price}</span>
+                <span className="price-currency-compact">₽</span>
+              </div>
             </div>
 
-            <div className="plan-requests">
-              {plan.requests > 0 ? (
-                <>{plan.requests} запросов</>
-              ) : (
-                <>♾️ Безлимит</>
-              )}
-            </div>
-
-            <ul className="plan-features">
+            <ul className="plan-features-compact">
               {plan.features.map((feature, index) => (
                 <li key={index}>
-                  <span className="feature-check">✓</span>
-                  {feature}
+                  <CheckIcon className="feature-check-icon" />
+                  <span>{feature}</span>
                 </li>
               ))}
             </ul>
 
             <button
-              className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} subscribe-btn`}
+              className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} subscribe-btn-compact`}
               onClick={() => handleSubscribe(plan.id)}
             >
-              Выбрать план
+              Выбрать
             </button>
           </div>
         ))}
       </div>
 
       <div className="subscription-info card">
-        <h3>ℹ️ Информация о подписках</h3>
+        <h3>Информация о подписках</h3>
         <ul className="info-list">
           <li>Подписка продлевается автоматически каждый месяц</li>
           <li>Вы можете отменить подписку в любое время</li>
